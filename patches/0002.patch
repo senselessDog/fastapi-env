@@ -1,0 +1,192 @@
+Delivered-To: steven910601@gmail.com
+Received: by 2002:a05:6000:2a1:b0:391:2de4:6c98 with SMTP id l1csp136362wry;
+        Wed, 19 Mar 2025 04:50:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCU0LUojlh7zv8rRR1Pb7o50UGsAFy+k8MPVAg8HDPkwLYd8F45OCzO26q+JaV27lN6iHYry8QhO9MIBqEA=@gmail.com
+X-Received: by 2002:a05:6512:128b:b0:545:2eca:863 with SMTP id 2adb3069b0e04-54acb1fc92amr792400e87.42.1742385032057;
+        Wed, 19 Mar 2025 04:50:32 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1742385032; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=LjVUhfBc8hzFNjdKSKQfp0E3ZYt47V1a/18Qt7vri2oNGRkmE9YaaSlLi4Vo1VRGhu
+         iCiCGQrcE0mC1sdkKfO1w+V9B3xa5P89WuQFohQpF5+29xDyGHoZETlCHBmiPwR88inh
+         jbxO1qCFt2MtTSdqm1zSDVc7pN6A3BH2FOKQ/NLNQDY4QYsyfsN+FfFOCpG6OgJGTjTw
+         NUseaPcEOXokepkLpAMOnkIbubrkCIOpO+Ko9/vP8e8bozN2CMhFvu+86WE7s+jsIvvE
+         zWOL5Ebd+t02WGo5bmCV/Sm9c1IXdVUP87REFdqSGovc6+Sxj6aFct88e0c6a8XoKnY0
+         G6Jw==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:mime-version:feedback-id
+         :references:in-reply-to:message-id:subject:from:to:date
+         :dkim-signature;
+        bh=m7dYbRFV0sGVfwocrQg5dz0eukqgUq9YdqLFO75b+pY=;
+        fh=GxS0LDrpP0mD+ePqUagfbQ4xjZiTGkCP2sb+nh9Onac=;
+        b=VJM0wWlHwAyIir3rwS5IlEqu1syqXKwMuTjPUrID9M3X8RDIZtsVvkpbqn1nnzh9/t
+         otR7mX0i/KVhdhsqZ8syEprurdAp7/pW3V2Ar/3AvI4CeVU/IduwX1Ph7hQVMsRNmWU2
+         JwVk4DiF/IeRQU9+iN+uf3X/iohC7yN69u43vpugTSEejbsG6lhK3qITxXznynN03RsX
+         RiSAzCoQQTD7qdBGnL9Lbvco07XVDrE+TvMEJUkyy4NPEeyF/JrapZyRP8OkPO5/G+3D
+         ItHb8AOSMp03JPgDVpne62EW4BIPYqjj0KnNRKVJ3XIXwqbi9XsGEiavO9CuUceiF7Ds
+         73cQ==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@googlegroups.com header.s=20230601 header.b=PycDKBSo;
+       arc=pass (i=2 spf=pass spfdomain=kuo.is dkim=pass dkdomain=kuo.is dmarc=pass fromdomain=kuo.is);
+       spf=pass (google.com: domain of sdc-linux-kernel-contributor-training-spring-2025-members+bncbchnb3gtsilrbbw75k7amgqer2nv6by@googlegroups.com designates 209.85.220.55 as permitted sender) smtp.mailfrom=sdc-linux-kernel-contributor-training-spring-2025-members+bncBCHNB3GTSILRBBW75K7AMGQER2NV6BY@googlegroups.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=googlegroups.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <sdc-linux-kernel-contributor-training-spring-2025-members+bncBCHNB3GTSILRBBW75K7AMGQER2NV6BY@googlegroups.com>
+Received: from mail-sor-f55.google.com (mail-sor-f55.google.com. [209.85.220.55])
+        by mx.google.com with SMTPS id 2adb3069b0e04-54aca5b9c78sor308414e87.24.2025.03.19.04.50.31
+        for <steven910601@gmail.com>
+        (Google Transport Security);
+        Wed, 19 Mar 2025 04:50:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sdc-linux-kernel-contributor-training-spring-2025-members+bncbchnb3gtsilrbbw75k7amgqer2nv6by@googlegroups.com designates 209.85.220.55 as permitted sender) client-ip=209.85.220.55;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlegroups.com header.s=20230601 header.b=PycDKBSo;
+       arc=pass (i=2 spf=pass spfdomain=kuo.is dkim=pass dkdomain=kuo.is dmarc=pass fromdomain=kuo.is);
+       spf=pass (google.com: domain of sdc-linux-kernel-contributor-training-spring-2025-members+bncbchnb3gtsilrbbw75k7amgqer2nv6by@googlegroups.com designates 209.85.220.55 as permitted sender) smtp.mailfrom=sdc-linux-kernel-contributor-training-spring-2025-members+bncBCHNB3GTSILRBBW75K7AMGQER2NV6BY@googlegroups.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=googlegroups.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=2; a=rsa-sha256; t=1742385031; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=AJ0KrMSUIVZ/+urTbC1AvoxyrreFLbwdzQSZAYZbYyBkZW0pv74YhB6+lLRP7JXtVT
+         0kKlEgFh/Aeic7pSJ/hBuArG3QKoks2xfj385NcG5jCj5zkfR7xVcC/xsRfOftQY6Oku
+         9nble/GFWPMz8Wu/efXgEAP12w51WIAaJ/t3EWrCCLVjKpL4vp3d5KKMAmrJixARu0zb
+         J754nkMigtZCMoDP+Q3p8r9MjSxlH6UYbdsYwMVK1UGn2Gal9vpIYTdWVy1G9OG0Z4Tt
+         CRL5qG7GbZv/AKYkOy1nXaWvuq/b8dy8OsEBrYHv7aeIKkhKVRmysX5fvQl/mdQSCvWu
+         Uzzg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:mime-version:feedback-id
+         :references:in-reply-to:message-id:subject:from:to:date
+         :dkim-signature;
+        bh=m7dYbRFV0sGVfwocrQg5dz0eukqgUq9YdqLFO75b+pY=;
+        fh=GxS0LDrpP0mD+ePqUagfbQ4xjZiTGkCP2sb+nh9Onac=;
+        b=OTYdAfRwW5R16MmRUltUXCjyhDnfpcW60f3ETfT5khKZHkwoPw7drKvy2T6MxiYOPY
+         nWuQGrMfIErAQRu0GhrE1OEYZqeR8XkEJXxdDobI033IMu+GefqkStfgoW/S0e0KsUx+
+         XFWJ4rABa+SJ3VM1QwomMOt1fv6gynw16SyaXcdOneJKsnNXlHU7apNt/WZlyjr4yPIW
+         jfs6WqUNUEHfP0vkNiClojezludSfmny1JKf2QzlBkJUJ1aNzwmTMO30Ntzw0CDnAPR5
+         1wcFqr2CSiHQ6mA8G5fdkbxIBWJxGcF2JYfmvl5nIMlvhAy0OMQOhsL8Us/CgJrImxGp
+         m4mQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@kuo.is header.s=protonmail header.b=yAtBcXj2;
+       spf=pass (google.com: domain of andrew@kuo.is designates 185.70.43.17 as permitted sender) smtp.mailfrom=andrew@kuo.is;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kuo.is
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20230601; t=1742385031; x=1742989831; dara=google.com;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:x-original-authentication-results
+         :x-original-sender:mime-version:feedback-id:references:in-reply-to
+         :message-id:subject:from:to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m7dYbRFV0sGVfwocrQg5dz0eukqgUq9YdqLFO75b+pY=;
+        b=PycDKBSoV4Zvxq6k4neXlhRAvcplX7r+xUPvjZp3hHBcDLYd5u6iYwL2MMxfUGdepS
+         AJxjIwDg/2eAjgV+fsO0zF5QJP0JPzdtrmXVARdKeo0oAFEDPcPv0GhmmmHF8LUOt+nJ
+         ULrzRE+StVUPh85YHrkNEt3Vp9V2lJwQAvKrLCpBxiW+J9NAkqw1LdROv9vSm4ht/up5
+         JspxENqMkIiEwpi78p2E/b3y2iZK+zq2dhjC8Bn+qMkZc60srzdHsM3OZawfCxLfaSp0
+         OT2DP0fgfm3mbfkUv1PfGZ2ba5lq7YX/oGnWPKyxvLUa7GXAzRS8kx/jX64GThw/x3Vt
+         Wz9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742385031; x=1742989831;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :feedback-id:references:in-reply-to:message-id:subject:from:to:date
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m7dYbRFV0sGVfwocrQg5dz0eukqgUq9YdqLFO75b+pY=;
+        b=d4bjkYXwUm11KOIEbAUtWweXh7JthLDiK5FNE8Am+WvvBv1J28TEhReowjCnVr6XSg
+         lcRYhb1sY0GA/sh4g2ONFz9rPx7Kic4QgS2iQVF0OMbqyf8KsWTCdtNBixMC5/zKSgBZ
+         x4oZxF6jzmK+UoBmpFQhXveF7QNNrG/3A6ADxy85+Fy/Qvaw5EKWq/jGan8rQkuWnew6
+         dKqGcvh+lyKILQcuz13/PczF5llo5L75ive4nfOPEZuAgSWYmZ0ARFtFmOBEz3i1HAiR
+         zky0C6MP4Q54WfQqJm6h0zYEbAaP5H35x3sxSFDENEijoJBr00fl3Y3YHErMaTgCZH7z
+         2zmg==
+X-Forwarded-Encrypted: i=2; AJvYcCUYB8z5kiUVczIyqghRIuYel8YDJBlKaKe68VcbJ5ONq6XoTcBUgVyOB45Hk1aKBE3QGsTJIFMih+stJWo=@gmail.com
+X-Gm-Message-State: AOJu0YzHIP6bVn3CEErDScqEhZkYROrRMKQsrc3Ykm0JKy4qspfmK/nU mG9/oBOJOBZA6Wb6GN8OEUWmaMqtyXbPHNWe/HNEjso0yUoF4Vv6
+X-Google-Smtp-Source: AGHT+IHrrNlORWZyh15Sle2bwW/84izqWCqETSBMrCfs6LLL5bsi30A/g87kT3XKsaT83U2luza49A==
+X-Received: by 2002:a05:6512:158a:b0:549:86c8:1133 with SMTP id 2adb3069b0e04-54acb1b6a96mr856828e87.12.1742385030982;
+        Wed, 19 Mar 2025 04:50:30 -0700 (PDT)
+X-BeenThere: sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com; h=ARLLPAL/Llf7yXTO+aMBOPOe3vvg0M5VhNga0I52Tz3AkDKELg==
+Received: by 2002:a19:e00a:0:b0:549:9621:8b82 with SMTP id 2adb3069b0e04-54ac9139115ls213437e87.2.-pod-prod-03-eu; Wed, 19 Mar 2025 04:50:28 -0700 (PDT)
+X-Received: by 2002:a05:6512:3b9c:b0:549:66d8:a1f3 with SMTP id 2adb3069b0e04-54acb1fc8b1mr694882e87.40.1742385028469;
+        Wed, 19 Mar 2025 04:50:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1742385028; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VtPuUW5+t2PYRz0j2jw0GxDhbYAA82Q2fsqTSzqn3WmNKvPf3JlnxsZykcjNAJxed4
+         FoNyYDf8dn5kizyHZoG+u7Z6T+h0S27yoasaKRU9z73fnIg0WUU4HMfsO7TinIQrjEDv
+         yy2PMWOUlpoDJOyOs3HxI95aDe7hjAZfvb+/bPtH/f2lTgw/RYCrFrtkshby3bEtzoBr
+         OXNwcQsG5btCWmXQxVkKmLNpFUwmtN3HX49Al09SgFL0nfd+EiDpuR0Xl34MJHgXLyQD
+         bpujspUhYtB3XyDrlnC0QQF4WWLKLAqTiw5lD8X5QyDojnApPbNTiq73SadoN8RXg2gZ
+         5MYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:feedback-id:references
+         :in-reply-to:message-id:subject:from:to:date:dkim-signature;
+        bh=ub06mXvvaMReHRZrJXrJzqPqhyAqmXB8lGcOIdaiesE=;
+        fh=mOCZiVm1MJ6DXV5jnk+s1XN/6rAxxEf6PdH0fnIS4l8=;
+        b=eyxFHfRaF/DcF0AkOtsl8hSxUGCmC3fGwAF1Lb+6L8HqNhNAv3uDVLBvaBENme8tsK
+         mHOGddoOW0lZ4XZDDPT3ERQAx9WM2xwQ1JPz+oSzAh5/wQAV8P34mixShxoPePgjWW+N
+         bJ8EyBE7l6HResQBz3+ziJjpybUc3lI3Q4VYqUFWCUF/yTR1kWIRrI5sxjY0w9iPnyxB
+         S7bJEoQtWjHL6dNuK0p0vr05RE4lU/p4IkH9ntl69nMipE97giCKQOHsa8GjYgMQr2Up
+         kCm39RnYxiPpp4XV2+WYchlCFoTe9kFOBPlvHQ1fYX51nJNcFHem6QTgeR40gO6ZI3Nx
+         SCBQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@kuo.is header.s=protonmail header.b=yAtBcXj2;
+       spf=pass (google.com: domain of andrew@kuo.is designates 185.70.43.17 as permitted sender) smtp.mailfrom=andrew@kuo.is;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kuo.is
+Received: from mail-4317.protonmail.ch (mail-4317.protonmail.ch. [185.70.43.17])
+        by gmr-mx.google.com with ESMTPS id 2adb3069b0e04-549ba7e548asi430549e87.9.2025.03.19.04.50.28
+        for <sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Mar 2025 04:50:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andrew@kuo.is designates 185.70.43.17 as permitted sender) client-ip=185.70.43.17;
+Date: Wed, 19 Mar 2025 11:50:24 +0000
+To: sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com
+From: "'burnedinthesky' via sdc-linux-kernel-contributor-training-spring-2025-members" <sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com>
+Subject: [PATCH 2/2] Add feature to dev_1.0
+Message-ID: <20250319115013.37343-3-andrew@kuo.is>
+In-Reply-To: <20250319115013.37343-1-andrew@kuo.is>
+References: <20250319115013.37343-1-andrew@kuo.is>
+Feedback-ID: 127330677:user:proton
+X-Pm-Message-ID: bed2e67afec5fc3b7d028f05e19f5adf0cdd8e15
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: andrew@kuo.is
+X-Original-Authentication-Results: gmr-mx.google.com;
+       dkim=pass header.i=@kuo.is header.s=protonmail header.b=yAtBcXj2;
+       spf=pass (google.com: domain of andrew@kuo.is designates 185.70.43.17 as permitted sender) smtp.mailfrom=andrew@kuo.is;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kuo.is
+X-Original-From: burnedinthesky <andrew@kuo.is>
+Reply-To: burnedinthesky <andrew@kuo.is>
+Precedence: list
+Mailing-list: list sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com; contact sdc-linux-kernel-contributor-training-spring-2025-members+owners@googlegroups.com
+List-ID: <sdc-linux-kernel-contributor-training-spring-2025-members.googlegroups.com>
+X-Spam-Checked-In-Group: sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com
+X-Google-Group-Id: 992179063860
+List-Post: <https://groups.google.com/group/sdc-linux-kernel-contributor-training-spring-2025-members/post>, <mailto:sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com>
+List-Help: <https://groups.google.com/support/>, <mailto:sdc-linux-kernel-contributor-training-spring-2025-members+help@googlegroups.com>
+List-Archive: <https://groups.google.com/group/sdc-linux-kernel-contributor-training-spring-2025-members
+List-Unsubscribe: <mailto:googlegroups-manage+992179063860+unsubscribe@googlegroups.com>, <https://groups.google.com/group/sdc-linux-kernel-contributor-training-spring-2025-members/subscribe>
+
+From: burnedinthesky <40905726+burnedinthesky@users.noreply.github.com>
+
+---
+ feature.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+diff --git a/feature.txt b/feature.txt
+new file mode 100644
+index 0000000..6c9473a
+--- /dev/null
++++ b/feature.txt
+@@ -0,0 +1 @@
++New Feature in dev_1.0
+-- 
+2.39.5 (Apple Git-154)
+
+
+-- 
+You received this message because you are subscribed to the Google Groups "sdc-linux-kernel-contributor-training-spring-2025-members" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to sdc-linux-kernel-contributor-training-spring-2025-members+unsubscribe@googlegroups.com.
+To view this discussion visit https://groups.google.com/d/msgid/sdc-linux-kernel-contributor-training-spring-2025-members/20250319115013.37343-3-andrew%40kuo.is.
+For more options, visit https://groups.google.com/d/optout.

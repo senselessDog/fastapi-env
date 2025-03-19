@@ -1,0 +1,480 @@
+Delivered-To: steven910601@gmail.com
+Received: by 2002:a05:6000:2a1:b0:391:2de4:6c98 with SMTP id l1csp136349wry;
+        Wed, 19 Mar 2025 04:50:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCUcJEWJeB0KyAnLT2xkzhK3j+wgCxKALWwAK/XwxkdTYIPKl6medTEZN/ds8BLeUMz6a9FbddmDGVsETII=@gmail.com
+X-Received: by 2002:a05:6512:131b:b0:545:f4b:ed58 with SMTP id 2adb3069b0e04-54acb1bd4ffmr879593e87.18.1742385029666;
+        Wed, 19 Mar 2025 04:50:29 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1742385029; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=L4wbiyUmzfFvHmnIIbsKk9UVAsjTho3nIXi3pmYQ7Nxelza3MZkJgFGBXuFCO09BU4
+         4AjSlKmBfsVyDpPMHJJtgrBFY17ngSgzwl0og0mfJX7Dau/uVX73JFZ7GbYlU/WLXga9
+         ewGW6fHPan2v98vrLlQmKGWwASKh1z5uq6U9/Xl6rRdHulEVAvN0tZUtwFeBnIQj9W2k
+         qnD6vN++xOHZ8qo0S+qlzsTAIOqCg2C6aitg1tHT7+zGd+axHD2h6EYnUn5fnEchZ5T7
+         BnZQhUq99wZKSwObjJFgQj9iTGLz97ij8b99DYo1o2iu9ulcKo1zfvUsV4GNxoU63XUZ
+         uonw==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:mime-version:feedback-id
+         :references:in-reply-to:message-id:subject:from:to:date
+         :dkim-signature;
+        bh=L5UXvKpnukqv9qr7ggmILaR7x/B0C8Tqc7OPWPxvNUo=;
+        fh=yGh/IiRoM2lgttW8pmOi01AZl1bJ17bL5qcjOul9eX0=;
+        b=g6L7k2eKKIall24hLVWIqPbGwsK3hLaMKlqEWZ1bdClMDnFNkTnof9nCaK/zlr6Dr/
+         bvMqiGozdGETD7cazcQEHJKXoCdX0Y3LSxv1UAfWy1GzsiyzcqFYLGPmogNFK0r3qweI
+         fBQH1YWpYereKORU5T5zIMjK36qdsnRyhR2K+IMUez3jbNTbWebfYP8SUNL8sAwZM0qY
+         CUat15SdGkQSUdZ+lxtqYqc2GSku0pdTzVpD9xu86CqTgFbgxZRF6pSQAM4+bqXQKbMm
+         Ke1wM7d7wqc374cuAq3Dlm/Bxn5r/7hmG54eO4ED/h0I8y1SZifF0NnXTmk9hufwXV/5
+         liDQ==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@googlegroups.com header.s=20230601 header.b=pZRoVJad;
+       arc=pass (i=2 spf=pass spfdomain=kuo.is dkim=pass dkdomain=kuo.is dmarc=pass fromdomain=kuo.is);
+       spf=pass (google.com: domain of sdc-linux-kernel-contributor-training-spring-2025-members+bncbchnb3gtsilrbbg75k7amgqesbsmuti@googlegroups.com designates 209.85.220.55 as permitted sender) smtp.mailfrom=sdc-linux-kernel-contributor-training-spring-2025-members+bncBCHNB3GTSILRBBG75K7AMGQESBSMUTI@googlegroups.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=googlegroups.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <sdc-linux-kernel-contributor-training-spring-2025-members+bncBCHNB3GTSILRBBG75K7AMGQESBSMUTI@googlegroups.com>
+Received: from mail-sor-f55.google.com (mail-sor-f55.google.com. [209.85.220.55])
+        by mx.google.com with SMTPS id 2adb3069b0e04-549bb04e907sor2732345e87.2.2025.03.19.04.50.29
+        for <steven910601@gmail.com>
+        (Google Transport Security);
+        Wed, 19 Mar 2025 04:50:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sdc-linux-kernel-contributor-training-spring-2025-members+bncbchnb3gtsilrbbg75k7amgqesbsmuti@googlegroups.com designates 209.85.220.55 as permitted sender) client-ip=209.85.220.55;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlegroups.com header.s=20230601 header.b=pZRoVJad;
+       arc=pass (i=2 spf=pass spfdomain=kuo.is dkim=pass dkdomain=kuo.is dmarc=pass fromdomain=kuo.is);
+       spf=pass (google.com: domain of sdc-linux-kernel-contributor-training-spring-2025-members+bncbchnb3gtsilrbbg75k7amgqesbsmuti@googlegroups.com designates 209.85.220.55 as permitted sender) smtp.mailfrom=sdc-linux-kernel-contributor-training-spring-2025-members+bncBCHNB3GTSILRBBG75K7AMGQESBSMUTI@googlegroups.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=googlegroups.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=2; a=rsa-sha256; t=1742385029; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=FXjSsoq+xIZ2oOfXISx9DKbK91Xcz5If3M/y1p07lHD3QIGNYBb1phWGcwgtZ+QjJy
+         2W13h+ef1MWm5WMmp8VZ+QyITU7wCmgN9ZEYwyLpGrUUa1P97BsJsIhO9nsWz08MVFXA
+         7NVdK4kvYZMEzJwmutbGvCswg42eDokQ8lndtRV5hPI8BQcTpoPkWiRKk7nKffJ/Rwlq
+         yKYGjlV/e0mXZq2sOrrE+6ZW1wUu1hrXCNsO9GkPaVDKGF82eNg4UsWeqBn6QAD8aje6
+         2o6DoKq5HsKxuvIZz2Kzovkkbu6hPOSGGTu5lLURYCZd7NxjzpmQERJ6AaEVgUpip/Zh
+         +YUw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:mime-version:feedback-id
+         :references:in-reply-to:message-id:subject:from:to:date
+         :dkim-signature;
+        bh=L5UXvKpnukqv9qr7ggmILaR7x/B0C8Tqc7OPWPxvNUo=;
+        fh=yGh/IiRoM2lgttW8pmOi01AZl1bJ17bL5qcjOul9eX0=;
+        b=jJ4KawEF35IBnvRa9ftaml7/EmpM0O8zdlF4GH8NH+Yf5cSbYjPVMklt7kg9RKXEts
+         n/UorgQKhXvK65EeW1MFuoF9bLIvP7X878RvLzdSAJl/24GxxOlPjXEEJH/wBr0dh+8t
+         ZeRUp/w475kJtFyi2erPAyAM4lSsgwa5g1h2Ed9BocpP6FkI2Il6PdBs0WVQjNbAMmq+
+         XLxhyh9rsibfgGC3KwL84Js9bIVcATM+ytypm5IFLwr/CcBMxOtXAor9EJ0nSOEyPA9g
+         6pQHRtVsPEDNSHhATinnF7E0SFutF8dGC3YevNLEpDIyJgj3DDC4OlsYFmNMd+a3IZk2
+         xMag==;
+        dara=google.com
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@kuo.is header.s=protonmail header.b=aKWdRyGa;
+       spf=pass (google.com: domain of andrew@kuo.is designates 79.135.106.27 as permitted sender) smtp.mailfrom=andrew@kuo.is;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kuo.is
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20230601; t=1742385029; x=1742989829; dara=google.com;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:x-original-authentication-results
+         :x-original-sender:mime-version:feedback-id:references:in-reply-to
+         :message-id:subject:from:to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=L5UXvKpnukqv9qr7ggmILaR7x/B0C8Tqc7OPWPxvNUo=;
+        b=pZRoVJadnkSgtXHsQ9YrN4fu2ERvfsfyHKKbjfdTr3qRHTjcMwcIxNCcoLk3V1BENq
+         RoxnK6nU4QVYtYJes1tIqIYOEDZ5elIPStIPkeIPyCl4OVgwG6wRK5DDyWJEmHsgcIgK
+         qVYxUOgHxl0rJJmsL7+xbal4rvnsB2vTIC7PY5Ng7sEJZ5wn5LCTwCl2eLcyuUByNf+M
+         LnjLcWHpr4LMAhAiQ9GDgEPGa6d8ite7RoR9up+i5l/2mVl4Zchi7t5BBgMH6truZh3Z
+         RPi5tiA34eNo1HRkBI/IW1ZoIxqLIIsGlRCIitjDY6+vQ6PVdEOxp2Em0UNz3Vzig77G
+         rAvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742385029; x=1742989829;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :feedback-id:references:in-reply-to:message-id:subject:from:to:date
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=L5UXvKpnukqv9qr7ggmILaR7x/B0C8Tqc7OPWPxvNUo=;
+        b=XijjhKducz8cDLD4YB/yzbW6oPzE/ICdfo8vLRIxUb982M52r4R9ENBJi525qWL6Pf
+         kqgkfYoMt3A1XCjLahlw6tLWPC13eaI2HaSKO/rTTd67T7n+a3FX8TiIt6QLLGGptfNl
+         BoLip+9mCySuUQoSI/bBO2dgkhQdN0N1K8CjbchSZD1rcLVCbom8rdFxkg4uF/TWtUF5
+         4Zj4/uWQkhHbUIVC/R/S3mSfG+Ojvep8Y6agnT0cwxJRzWiBkX8ZtwddSoP37XiuV/1q
+         QFO94cxXHIe0JB0Vaw8bpni0huxJw4y0kx8tpRn/w87CEpQXWTDUkTTp52H/R3Yk2oJr
+         pN8Q==
+X-Forwarded-Encrypted: i=2; AJvYcCVXmHh660lnmMulMdXXKfXm+Ux+S6gXmkNB0mh918dbo3nyMGN9WR+4PRT/rggktiYWZmsDxbzFANI1bNY=@gmail.com
+X-Gm-Message-State: AOJu0YwnlpbOBKja3G14iS2Gl1wqqZPnGEeJ8OlulSzlnontIs9ABaiN wzw8PV/l5YGlGCiTohNZsFgHAl7ws1Gwd1O4jzF6NQwZT+YedD4i
+X-Google-Smtp-Source: AGHT+IHtzAQ9Jjs1+Hay1q9v2tneDoPArxdfbuLWZswkio5RAWeITbPsv+RRHdrVRSlHe/nNYKWGJA==
+X-Received: by 2002:a05:6512:2311:b0:549:5b54:2c68 with SMTP id 2adb3069b0e04-54acb1be80cmr747604e87.22.1742385028671;
+        Wed, 19 Mar 2025 04:50:28 -0700 (PDT)
+X-BeenThere: sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com; h=ARLLPAKmzcqxylw5VEX2gx3/xKlCHTrTsdehWH2/3ycjBaM5ug==
+Received: by 2002:a19:910d:0:b0:549:5db1:d929 with SMTP id 2adb3069b0e04-549d70e0448ls171e87.2.-pod-prod-01-eu; Wed, 19 Mar 2025 04:50:26 -0700 (PDT)
+X-Received: by 2002:a05:6512:118e:b0:545:441:52d2 with SMTP id 2adb3069b0e04-54acb1d2da1mr968658e87.23.1742385025682;
+        Wed, 19 Mar 2025 04:50:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1742385025; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LFNkLwMP5ZCDY50eh8fMPjAFikykUl12Vyjrjg11+SdoeknjFW6iv7wI82wtWeO4uu
+         bHhpfCiJFTaylZY88DHrbBqy8RBp/ZgUHeZLJKqhOA90hl2H+US/r/Ony7WCZYAFNXXH
+         UDYRDTOhJyj1B+U5mghwOgic35cSyudeiUDLe7HyYodAdbvvH5DGcm5A+jpIpRLwdOLG
+         d0727/Ipm+92KZUNTb35Hx8lf6DDjwdef/snGUfFIy8Zko7LbIVSHw4mQ0fKb17blRqS
+         qGQyXJREBUGZ4jCqbKGm9riVm4ifCBrbr9wT5vUjrLJsY1nWh4SlVYHacm9Eo0nTFyd5
+         iHsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:feedback-id:references
+         :in-reply-to:message-id:subject:from:to:date:dkim-signature;
+        bh=jD2kUub9mmEtlsI/kf/7r6J8Nj1QJD/3lCAuBqkUnWE=;
+        fh=mOCZiVm1MJ6DXV5jnk+s1XN/6rAxxEf6PdH0fnIS4l8=;
+        b=c3rOotvWq0kCNWluX0jKGQ8oLY2uCESd47nVJlXBk7kJ4ujOXU5gHx/vn7ZPSj/UHH
+         2vOXRKO+keG6MPOPu45WXMtOBUPHt/lKHQ3DTczZRt8Nw+Fqk/NPlrLRq+Gj5WXG5ofB
+         clIpCzjV6/CDkl4dPN2AA4FB3PC979t+R1scQhmxcHH0n6K26VFynsVN3Qm8Ks4QoUBt
+         WIyDCKqxL5VaUuDPr/bZit4i5AmXdIsGO9mcRn53Xp+7kkTPtsWFSl3umbdrtz4Dg3fM
+         JoKsC/X+R/1gxiIUGFFQT2ejoMMFPCjXTZ2y0IaC3MmZY7Wn7HPXSWdc6sOfgGcCIEGU
+         7gRg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@kuo.is header.s=protonmail header.b=aKWdRyGa;
+       spf=pass (google.com: domain of andrew@kuo.is designates 79.135.106.27 as permitted sender) smtp.mailfrom=andrew@kuo.is;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kuo.is
+Received: from mail-10627.protonmail.ch (mail-10627.protonmail.ch. [79.135.106.27])
+        by gmr-mx.google.com with ESMTPS id 2adb3069b0e04-549ba7630edsi402720e87.5.2025.03.19.04.50.25
+        for <sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Mar 2025 04:50:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andrew@kuo.is designates 79.135.106.27 as permitted sender) client-ip=79.135.106.27;
+Date: Wed, 19 Mar 2025 11:50:19 +0000
+To: sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com
+From: "'burnedinthesky' via sdc-linux-kernel-contributor-training-spring-2025-members" <sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com>
+Subject: [PATCH 1/2] Intergrate frontend and backend.
+Message-ID: <20250319115013.37343-2-andrew@kuo.is>
+In-Reply-To: <20250319115013.37343-1-andrew@kuo.is>
+References: <20250319115013.37343-1-andrew@kuo.is>
+Feedback-ID: 127330677:user:proton
+X-Pm-Message-ID: 7dea0d99d587b3ddda94da2defaa9e346ef6cfaa
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: andrew@kuo.is
+X-Original-Authentication-Results: gmr-mx.google.com;
+       dkim=pass header.i=@kuo.is header.s=protonmail header.b=aKWdRyGa;
+       spf=pass (google.com: domain of andrew@kuo.is designates 79.135.106.27 as permitted sender) smtp.mailfrom=andrew@kuo.is;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kuo.is
+X-Original-From: burnedinthesky <andrew@kuo.is>
+Reply-To: burnedinthesky <andrew@kuo.is>
+Precedence: list
+Mailing-list: list sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com; contact sdc-linux-kernel-contributor-training-spring-2025-members+owners@googlegroups.com
+List-ID: <sdc-linux-kernel-contributor-training-spring-2025-members.googlegroups.com>
+X-Spam-Checked-In-Group: sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com
+X-Google-Group-Id: 992179063860
+List-Post: <https://groups.google.com/group/sdc-linux-kernel-contributor-training-spring-2025-members/post>, <mailto:sdc-linux-kernel-contributor-training-spring-2025-members@googlegroups.com>
+List-Help: <https://groups.google.com/support/>, <mailto:sdc-linux-kernel-contributor-training-spring-2025-members+help@googlegroups.com>
+List-Archive: <https://groups.google.com/group/sdc-linux-kernel-contributor-training-spring-2025-members
+List-Unsubscribe: <mailto:googlegroups-manage+992179063860+unsubscribe@googlegroups.com>, <https://groups.google.com/group/sdc-linux-kernel-contributor-training-spring-2025-members/subscribe>
+
+From: SaviorDT <tony20040424@gmail.com>
+
+---
+ .gitignore                               |   3 +-
+ dockerfile => backend_fastapi/dockerfile |   0
+ backend_fastapi/entrypoint.sh            |  23 ++++
+ docker-compose.yaml                      | 140 ++++++++++++-----------
+ frontend_vue/entrypoint.sh               |  16 +++
+ mariadb/init.sql                         |   4 +
+ requirements.txt                         |  42 -------
+ 7 files changed, 121 insertions(+), 107 deletions(-)
+ rename dockerfile => backend_fastapi/dockerfile (100%)
+ create mode 100644 backend_fastapi/entrypoint.sh
+ create mode 100644 frontend_vue/entrypoint.sh
+ create mode 100644 mariadb/init.sql
+ delete mode 100644 requirements.txt
+
+diff --git a/.gitignore b/.gitignore
+index 3d1f187..4bac7aa 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,4 +1,5 @@
+ venv
+ .env
+-app/*
++backend_fastapi/app/
++frontend_vue/app/
+ *.bak
+\ No newline at end of file
+diff --git a/dockerfile b/backend_fastapi/dockerfile
+similarity index 100%
+rename from dockerfile
+rename to backend_fastapi/dockerfile
+diff --git a/backend_fastapi/entrypoint.sh b/backend_fastapi/entrypoint.sh
+new file mode 100644
+index 0000000..8ac5fd3
+--- /dev/null
++++ b/backend_fastapi/entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/bash
++
++# Initialize
++if [ ! -d ".git" ]; then
++    echo "Cloning repository..."
++    git init
++    git remote add origin https://github.com/NYCU-SDC/main-branch-backend.git
++    git pull origin main
++    git checkout main
++    git branch -d master
++
++    # copy .env file for quick setup
++    cp .env.example .env
++
++    echo "Running pip install for fastapi..."
++    pip install --upgrade pip
++    pip install --no-cache-dir --upgrade -r ./requirements.txt
++    echo "Running database migrations..."
++    alembic upgrade head
++fi
++
++echo "Running server..."
++uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+\ No newline at end of file
+diff --git a/docker-compose.yaml b/docker-compose.yaml
+index 1f2907e..0432165 100644
+--- a/docker-compose.yaml
++++ b/docker-compose.yaml
+@@ -1,73 +1,85 @@
+-version: '3.9'
+-
+ services:
+-  postgres:
+-    image: postgres:13
+-    container_name: sdc_postgres
+-    environment:
+-      POSTGRES_USER: user
+-      POSTGRES_PASSWORD: password
+-      POSTGRES_DB: fastapi
+-    networks:
+-      - intranet
+-    ports:
+-      - "5432:5432"
+-    volumes:
+-      - postgres_data:/var/lib/postgresql/data
++  # postgres:
++  #   image: postgres:13
++  #   container_name: sdc_postgres
++  #   environment:
++  #     POSTGRES_USER: user
++  #     POSTGRES_PASSWORD: password
++  #     POSTGRES_DB: fastapi
++  #   networks:
++  #     - intranet
++  #   ports:
++  #     - "5432:5432"
++  #   volumes:
++  #     - postgres_data:/var/lib/postgresql/data
+ 
+-  mariadb:
+-    image: mariadb:10.6
+-    container_name: sdc_mariadb
+-    restart: always
+-    environment:
+-      MYSQL_ROOT_PASSWORD: rootpassword
+-    networks:
+-      - intranet
+-    volumes:
+-      - mariadb_data:/var/lib/mysql
++  # mariadb:
++  #   image: mariadb:10.6
++  #   container_name: sdc_mariadb
++  #   environment:
++  #     MYSQL_ROOT_PASSWORD: rootpassword
++  #   networks:
++  #     - intranet
++  #   volumes:
++  #     - mariadb_data:/var/lib/mysql
++  #     - ./mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql
+ 
+-  pgadmin4:
+-    image: dpage/pgadmin4
+-    container_name: sdc_pgadmin4
+-    environment:
+-      - PGADMIN_DEFAULT_EMAIL=user@example.com
+-      - PGADMIN_DEFAULT_PASSWORD=password
+-    networks:
+-      - intranet
+-    ports:
+-      - "5050:80"
+-    depends_on:
+-      - postgres
+ 
+-  phpmyadmin:
+-    image: phpmyadmin
+-    container_name: sdc_phpmyadmin
+-    restart: always
+-    environment:
+-      PMA_HOST: mariadb
+-      MYSQL_ROOT_PASSWORD: rootpassword
+-    networks:
+-      - intranet
+-    ports:
+-      - "8081:80"
+-    depends_on:
+-      - mariadb
++  # pgadmin4:
++  #   image: dpage/pgadmin4
++  #   container_name: sdc_pgadmin4
++  #   environment:
++  #     - PGADMIN_DEFAULT_EMAIL=user@example.com
++  #     - PGADMIN_DEFAULT_PASSWORD=password
++  #   networks:
++  #     - intranet
++  #   ports:
++  #     - "5050:80"
++  #   depends_on:
++  #     - postgres
++
++  # phpmyadmin:
++  #   image: phpmyadmin
++  #   container_name: sdc_phpmyadmin
++  #   environment:
++  #     PMA_HOST: mariadb
++  #     MYSQL_ROOT_PASSWORD: rootpassword
++  #   networks:
++  #     - intranet
++  #   ports:
++  #     - "8081:80"
++  #   depends_on:
++  #     - mariadb
+ 
+-  app:
+-    build: ./
+-    container_name: sdc_fastapi_app
+-    restart: always
+-    networks:
+-      - intranet
++  # backend-fastapi:
++  #   image: python:3.10
++  #   container_name: sdc_fastapi_app
++  #   working_dir: /code/app
++  #   networks:
++  #     - intranet
++  #   volumes:
++  #     - ./backend_fastapi/app:/code/app
++  #     - ./backend_fastapi/entrypoint.sh:/code/entrypoint.sh
++  #   ports:
++  #     - "8000:8000"
++  #   entrypoint: ["/code/entrypoint.sh"]
++  #   depends_on:
++  #     - mariadb
++  frontend-vue:
++    build: ./frontend_vue
++    container_name: sdc_vue_app
++    working_dir: /code/app
+     volumes:
+-      - ./app:/code/app
++      - ./frontend_vue/app:/code/app
++      - ./frontend_vue/entrypoint.sh:/code/entrypoint.sh
+     ports:
+-      - "8080:8000"
++      - "8080:8080"
++    entrypoint: ["/code/entrypoint.sh"]
+ 
+-networks:
+-  intranet:
+-    driver: bridge
++# networks:
++#   intranet:
++#     driver: bridge
+ 
+-volumes:
+-  postgres_data:
+-  mariadb_data:
+\ No newline at end of file
++# volumes:
++#   postgres_data:
++  # mariadb_data:
+\ No newline at end of file
+diff --git a/frontend_vue/entrypoint.sh b/frontend_vue/entrypoint.sh
+new file mode 100644
+index 0000000..1b6b428
+--- /dev/null
++++ b/frontend_vue/entrypoint.sh
+@@ -0,0 +1,16 @@
++#!/bin/bash
++
++# Initialize
++if [ ! -d ".git" ]; then
++    echo "Cloning repository..."
++    git init
++    git remote add origin https://github.com/NYCU-SDC/main-branch-backend.git
++    git pull origin main
++    git checkout main
++    git branch -d master
++
++    echo "Running npm install for vue..."
++    npm install
++fi
++
++npm run serve
+\ No newline at end of file
+diff --git a/mariadb/init.sql b/mariadb/init.sql
+new file mode 100644
+index 0000000..fc2c584
+--- /dev/null
++++ b/mariadb/init.sql
+@@ -0,0 +1,4 @@
++CREATE DATABASE IF NOT EXISTS sdc_learn;
++CREATE USER IF NOT EXISTS 'sdc_learn'@'%' IDENTIFIED BY 'sdc_learn';
++GRANT ALL PRIVILEGES ON sdc_learn.* TO 'sdc_learn'@'%';
++FLUSH PRIVILEGES;
+\ No newline at end of file
+diff --git a/requirements.txt b/requirements.txt
+deleted file mode 100644
+index 379fcb3..0000000
+--- a/requirements.txt
++++ /dev/null
+@@ -1,42 +0,0 @@
+-alembic==1.13.2
+-annotated-types==0.7.0
+-anyio==4.4.0
+-Authlib==1.3.2
+-bcrypt==4.2.0
+-certifi==2024.7.4
+-cffi==1.17.0
+-click==8.1.7
+-coverage==7.6.1
+-cryptography==43.0.0
+-ecdsa==0.19.0
+-exceptiongroup==1.2.2
+-fastapi==0.112.2
+-greenlet==3.0.3
+-h11==0.14.0
+-httpcore==1.0.5
+-httpx==0.27.2
+-idna==3.8
+-iniconfig==2.0.0
+-itsdangerous==2.2.0
+-Mako==1.3.5
+-MarkupSafe==2.1.5
+-mysqlclient==2.2.4
+-packaging==24.1
+-passlib==1.7.4
+-pluggy==1.5.0
+-pyasn1==0.6.0
+-pycparser==2.22
+-pydantic==2.8.2
+-pydantic_core==2.20.1
+-pytest==8.3.2
+-pytest-cov==5.0.0
+-python-dotenv==1.0.1
+-python-jose==3.3.0
+-rsa==4.9
+-six==1.16.0
+-sniffio==1.3.1
+-SQLAlchemy==2.0.32
+-starlette==0.38.2
+-tomli==2.0.1
+-typing_extensions==4.12.2
+-uvicorn==0.30.6
+\ No newline at end of file
+-- 
+2.39.5 (Apple Git-154)
+
+
+-- 
+You received this message because you are subscribed to the Google Groups "sdc-linux-kernel-contributor-training-spring-2025-members" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to sdc-linux-kernel-contributor-training-spring-2025-members+unsubscribe@googlegroups.com.
+To view this discussion visit https://groups.google.com/d/msgid/sdc-linux-kernel-contributor-training-spring-2025-members/20250319115013.37343-2-andrew%40kuo.is.
+For more options, visit https://groups.google.com/d/optout.
